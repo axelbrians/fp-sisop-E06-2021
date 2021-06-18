@@ -60,9 +60,8 @@ bool remove_column_from_table();
 
 
 int main() {
-
-    // pid_t pid, sid;
-    // int *status = create_daemon(&pid, &sid);
+    pid_t pid, sid;
+    create_daemon(&pid, &sid);
 
     struct sockaddr_in new_addr;
     socklen_t addr_len;
@@ -984,7 +983,6 @@ void print_tips(int fd) {
 }
 
 int *create_daemon(pid_t *pid, pid_t *sid) {
-    int status;
     *pid = fork();
 
     if (*pid != 0) {
